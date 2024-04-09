@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home() {
+  const response = await fetch('');
+  const movies = await response.json();
   return (
-    <main className="flex justify-center items-center h-screen text-purple-500 text-3xl">
+    <main className="grid grid-cols-4 gap-16">
       <h1>Hello from Next 13🔥</h1>
     </main>
   );
