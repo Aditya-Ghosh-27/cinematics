@@ -13,7 +13,7 @@ export async function getStaticParams() {
     }))
 }
 
-export default async function MovieDetails({ params }: any) {
+async function MovieDetails({ params }: {params: {id: number}}) {
     const { id } = params;
     const imagePath = "https://image.tmdb.org/t/p/original";
     const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.API_KEY}`);
