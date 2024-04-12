@@ -10,7 +10,7 @@ interface movieProps {
 export default async function Home() {
   const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`);
   const movies = await response.json();
-  // console.log(movies);
+  // console.log(movies); 
   return (
     <main className="grid grid-cols-fluid gap-16">
       {movies.results.map((movie: movieProps) => (

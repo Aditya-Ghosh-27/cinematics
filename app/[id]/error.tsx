@@ -1,9 +1,9 @@
-"use client"
+"use client" //Error component must client side component
 
 export default function Error({error, reset}){
     return (
         <div>
-            <h2>Someting went wrong</h2>
+            <h2>Something went wrong!</h2>
             <button onClick={() => reset()}>Try again</button>
         </div>
     )
