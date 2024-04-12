@@ -1,12 +1,20 @@
-import Image from "next/image";
-import Link from "next/link";
+interface movieProps {
+  id: number
+  title: string
+}
 
 export default async function Home() {
-  const response = await fetch('');
+  const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${process.env.API_KEY}`);
   const movies = await response.json();
+  // console.log(movies);
   return (
-    <main className="grid grid-cols-4 gap-16">
+    <main>
       <h1>Hello from Next 13🔥</h1>
+      {movies.results.map((movie : movieProps) => (
+        <div key={movie.id}>
+          <p>{movie.title}</p>
+        </div>
+      ))}
     </main>
   );
 }
