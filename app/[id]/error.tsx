@@ -1,6 +1,15 @@
-"use client" //Error component must client side component
+"use client"
+import { useEffect } from "react"
 
-export default function Error({error, reset}){
+ //Error component must client side component
+
+export default function Error({error, reset}: {
+    error: Error & { digest?: string}
+    reset: () => void
+}) {
+    useEffect(() => {
+        console.error(error);
+    }, [error]);
     return (
         <div>
             <h2>Something went wrong!</h2>
