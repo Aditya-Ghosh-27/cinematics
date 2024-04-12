@@ -12,8 +12,7 @@ export default async function Home() {
   const movies = await response.json();
   // console.log(movies);
   return (
-    <main>
-      <h1>Hello from Next 13🔥</h1>
+    <main className="grid grid-cols-fluid gap-16">
       {movies.results.map((movie: movieProps) => (
         <Movie key={movie.id} title={movie.title} id={movie.id} poster_path={movie.poster_path} release_date={movie.release_date} />
       ))}
