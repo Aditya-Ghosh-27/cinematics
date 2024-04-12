@@ -1,6 +1,10 @@
+import Movie from "@/app/components/Movie";
+
 interface movieProps {
   id: number
   title: string
+  poster_path: string
+  release_date: string
 }
 
 export default async function Home() {
@@ -10,10 +14,8 @@ export default async function Home() {
   return (
     <main>
       <h1>Hello from Next 13🔥</h1>
-      {movies.results.map((movie : movieProps) => (
-        <div key={movie.id}>
-          <p>{movie.title}</p>
-        </div>
+      {movies.results.map((movie: movieProps) => (
+        <Movie key={movie.id} title={movie.title} id={movie.id} poster_path={movie.poster_path} release_date={movie.release_date} />
       ))}
     </main>
   );
