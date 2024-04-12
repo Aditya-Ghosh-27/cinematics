@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 interface movieProps {
-    
+    movie: string
 }
 
 export async function generateStaticParams() {
@@ -10,7 +10,7 @@ export async function generateStaticParams() {
   )
   const res = await data.json()
 
-  return res.results.map((movie) => ({
+  return res.results.map((movie: movieProps) => ({
     movie: toString(movie.id),
   }))
 }
